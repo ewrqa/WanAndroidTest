@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">WanAndroidTest</string>
+    <string name="loading_name">正在请求网络</string>
+    <string name="welcome_message">立即进入</string>
+    <string name="bottom_name1">首页</string>
+    <string name="bottom_name2">项目</string>
+    <string name="bottom_name3">广场</string>
+    <string name="bottom_name4">公众号</string>
+    <string name="bottom_name5">我的</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+    <string name="place_login">请登录~</string>
+    <string name="my_credits">我的积分</string>
+    <string name="now_credits">当前积分:</string>
+    <string name="my_collect">我的收藏</string>
+    <string name="my_article">我的文章</string>
+    <string name="my_task">我的任务</string>
+    <string name="my_join">加入我们</string>
+    <string name="my_set">系统设置</string>
+    <string name="my_url">开源网站</string>
+    <string name="login">登录</string>
+    <string name="account_number">账号</string>
+    <string name="password">密码</string>
+    <string name="go_register">去注册</string>
+    <string name="register_login">注册并登录</string>
+
+</resources>

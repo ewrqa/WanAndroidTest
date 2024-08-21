@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--        icon  图片-->
+<!--        showAsAction 是否一直显示-->
+<!--        checked  是否一直 选中-->
+
+        <item android:id="@+id/home_search"
+              android:icon="@drawable/ic_search"
+              app:showAsAction="always"
+              android:checked="false"
+              android:title="搜索" />
+</menu>

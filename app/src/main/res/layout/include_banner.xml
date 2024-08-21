@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<!--    app:bvp_auto_play="true" 自动播放-->
+<!--    app:bvp_can_loop="true"  轮播播放-->
+<!--    app:bvp_indicator_gravity="center" 是否居中-->
+<!--    app:bvp_indicator_style="circle"  指示器的样式-->
+<!--    app:bvp_indicator_checked_color="@color/accent" 指示器选中颜色-->
+<!--    app:bvp_indicator_normal_color="@color/background" 未选中颜色-->
+    <com.zhpan.bannerview.BannerViewPager
+
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:bvp_auto_play="true"
+        app:bvp_can_loop="true"
+        app:bvp_indicator_gravity="center"
+        app:bvp_indicator_style="circle"
+        app:bvp_indicator_checked_color="@color/accent"
+        app:bvp_indicator_normal_color="@color/background"
+        />
+
+
+
+</merge>

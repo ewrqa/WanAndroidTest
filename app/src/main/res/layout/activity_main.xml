@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data></data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+<!--      navhost  用来装载 navigation和显示fragment-->
+<!--      name 说明该fragment是navHost-->
+<!--      navGraph表示 显示的fragment-->
+
+     <fragment
+         android:id="@+id/host_fragment"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:name="androidx.navigation.fragment.NavHostFragment"
+         app:navGraph="@navigation/main_navigation"
+         app:defaultNavHost="true"
+         />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

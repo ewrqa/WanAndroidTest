@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/main_fragment"
+    >
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.wanandroidtest.ui.fragment.MainFragment"
+        tools:layout="@layout/fragment_main"
+        />
+    <fragment
+        android:id="@+id/fragment_me"
+        android:name="com.example.wanandroidtest.ui.fragment.me.MeFragment"
+        tools:layout="@layout/fragment_me"
+        />
+   <fragment
+       android:id="@+id/project_fragment"
+       android:name="com.example.wanandroidtest.ui.fragment.project.ProjectFragment"
+      tools:layout="@layout/project_fragment"
+       >
+   </fragment>
+
+
+    <fragment
+        android:id="@+id/system_fragment"
+        android:name="com.example.wanandroidtest.ui.fragment.system.SystemFragment"
+        tools:layout="@layout/system_fragment"
+        >
+    </fragment>
+
+    <fragment
+        android:id="@+id/public_fragment"
+        android:name="com.example.wanandroidtest.ui.fragment.public.PublicFragmetn"
+        tools:layout="@layout/public_fragment"
+        >
+    </fragment>
+
+    <activity
+        android:id="@+id/login_activity"
+        tools:layout="@layout/activity_login"
+        android:name="com.example.wanandroidtest.ui.activity.loginregister.LoginActivity"
+        >
+    </activity>
+
+
+    <activity android:id="@+id/register_activity"
+        android:name="com.example.wanandroidtest.ui.activity.loginregister.RegisterActivity"
+        tools:layout="@layout/activity_register"
+        >
+    </activity>
+</navigation>
