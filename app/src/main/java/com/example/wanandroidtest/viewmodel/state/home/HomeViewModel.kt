@@ -39,33 +39,33 @@ class HomeViewModel : BaseViewModel() {
      *   是否刷新
      *
      */
-    fun getHomeData(isRefresh: Boolean) {
-        if (isRefresh) {
-            page = 0
-        }
-        request({ httpRequestManager.getHomeData(page) }, {
-            //请求成功
-            page++
-            val listDataUiState =
-                ListDataUiState(
-                    isSuccess = true,
-                    isRefresh = isRefresh,
-                    isEmpty = it.isEmpty(),
-                    hasMore = it.hasMore(),
-                    isFirstEmpty = isRefresh && it.isEmpty(),
-                    listData = it.datas
-                )
-            homeData.value = listDataUiState
-        }, {
-            //请求失败
-            val listDataUiState =
-                ListDataUiState(
-                    isSuccess = false,
-                    errMessage = it.errorMsg,
-                    isRefresh = isRefresh,
-                    listData = arrayListOf<HomeBean>()
-                )
-            homeData.value = listDataUiState
-        })
-    }
+//    fun getHomeData(isRefresh: Boolean) {
+//        if (isRefresh) {
+//            page = 0
+//        }
+//        request({ httpRequestManager.getHomeData(page) }, {
+//            //请求成功
+//            page++
+//            val listDataUiState =
+//                ListDataUiState(
+//                    isSuccess = true,
+//                    isRefresh = isRefresh,
+//                    isEmpty = it.isEmpty(),
+//                    hasMore = it.hasMore(),
+//                    isFirstEmpty = isRefresh && it.isEmpty(),
+//                    listData = it.datas
+//                )
+//            homeData.value = listDataUiState
+//        }, {
+//            //请求失败
+//            val listDataUiState =
+//                ListDataUiState(
+//                    isSuccess = false,
+//                    errMessage = it.errorMsg,
+//                    isRefresh = isRefresh,
+//                    listData = arrayListOf<HomeBean>()
+//                )
+//            homeData.value = listDataUiState
+//        })
+//    }
 }
