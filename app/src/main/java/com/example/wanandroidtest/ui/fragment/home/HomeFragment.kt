@@ -19,7 +19,7 @@ import com.kingja.loadsir.core.LoadService
 import com.zhpan.bannerview.BannerViewPager
 import me.hgj.jetpackmvvm.base.appContext
 /**
- *  当前是新创建的分支
+ *  当前是主分支
  */
 class HomeFragment :BaseFragment<HomeViewModel,HomeFragmentBinding>(){
     private lateinit var loadSir:LoadService<Any>
