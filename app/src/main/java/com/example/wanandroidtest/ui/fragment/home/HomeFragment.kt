@@ -18,7 +18,9 @@ import com.example.wanandroidtest.weight.banner.HomeBannerVIewHolder
 import com.kingja.loadsir.core.LoadService
 import com.zhpan.bannerview.BannerViewPager
 import me.hgj.jetpackmvvm.base.appContext
-
+/**
+ *  当前是新创建的分支
+ */
 class HomeFragment :BaseFragment<HomeViewModel,HomeFragmentBinding>(){
     private lateinit var loadSir:LoadService<Any>
     override fun layoutId(): Int {
@@ -54,18 +56,19 @@ class HomeFragment :BaseFragment<HomeViewModel,HomeFragmentBinding>(){
       viewModel.getBannerData()
     }
     override fun createObserver() {
-        viewModel.bannerData.observe(this, Observer { resultState->
-            parseState(resultState,{ data->
-              val headview=  LayoutInflater.from(context).inflate(R.layout.home_fragment,null).apply {
-                      findViewById<BannerViewPager<BannerBean, HomeBannerVIewHolder>>(R.id.home_bannview).apply {
-                          adapter=HomeBannerAdapater()
-                          setLifecycleRegistry(lifecycle)
-                            create(data)
-                      }
-               }
-//                myDataBinding.includeList.includeRecyclerview.swipeRecyclerview.addHeaderView(headview)
-//                myDataBinding.includeList.includeRecyclerview.swipeRecyclerview.scrollToPosition(0)
-            })
-        })
+
+//        viewModel.bannerData.observe(this, Observer { resultState->
+//            parseState(resultState,{ data->
+//              val headview=  LayoutInflater.from(context).inflate(R.layout.home_fragment,null).apply {
+//                      findViewById<BannerViewPager<BannerBean,HomeBannerVIewHolder>>(R.id.home_bannview).apply {
+//                          adapter=HomeBannerAdapater()
+//                          setLifecycleRegistry(lifecycle)
+//                            create(data)
+//                      }
+//               }
+////                myDataBinding.includeList.includeRecyclerview.swipeRecyclerview.addHeaderView(headview)
+////                myDataBinding.includeList.includeRecyclerview.swipeRecyclerview.scrollToPosition(0)
+//            })
+//        })
     }
 }

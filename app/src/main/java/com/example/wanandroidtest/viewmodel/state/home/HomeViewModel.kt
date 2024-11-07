@@ -24,48 +24,50 @@ class HomeViewModel : BaseViewModel() {
     //页码
     var page=0
     //banner  livedata
-    val bannerData = MutableLiveData<ResultState<ArrayList<BannerBean>>>()
+    var bannerData: MutableLiveData<ResultState<ArrayList<BannerBean>>> = MutableLiveData()
     // homeBean   livedata
     val homeData = MutableLiveData<ListDataUiState<HomeBean>>()
     /**
-     * 首页轮播图
+     * 获取首页轮播图
      */
     fun getBannerData(){
        request({ apiservice.banner()},bannerData,false)
     }
+
+
     /**
      *   首页列表数据获取
      *   刷新从第一页开始
      *   是否刷新
      *
      */
-    fun getHomeData(isRefresh: Boolean) {
-        if (isRefresh) {
-            page = 0
-        }
-        request({ httpRequestManager.getHomeData(page) }, {
-            //请求成功
-            page++
-            val listDataUiState =
-                ListDataUiState(
-                    isSuccess = true,
-                    isRefresh = isRefresh,
-                    isEmpty = it.isEmpty(),
-                    hasMore = it.hasMore(),
-                    isFirstEmpty = isRefresh && it.isEmpty(),
-                    listData = it.datas
-                )
-            homeData.value = listDataUiState
-        }, {
-            //请求失败
-            val listDataUiState =
-                ListDataUiState(
-                    isSuccess = false,
-                    errMessage = it.errorMsg,
-                    isRefresh = isRefresh,
-                    listData = arrayListOf<HomeBean>()
-                )
-            homeData.value = listDataUiState
-        })
-    }
+//    fun getHomeData(isRefresh: Boolean) {
+//        if (isRefresh) {
+//            page = 0
+//        }
+//        request({ httpRequestManager.getHomeData(page) }, {
+//            //请求成功
+//            page++
+//            val listDataUiState =
+//                ListDataUiState(
+//                    isSuccess = true,
+//                    isRefresh = isRefresh,
+//                    isEmpty = it.isEmpty(),
+//                    hasMore = it.hasMore(),
+//                    isFirstEmpty = isRefresh && it.isEmpty(),
+//                    listData = it.datas
+//                )
+//            homeData.value = listDataUiState
+//        }, {
+//            //请求失败
+//            val listDataUiState =
+//                ListDataUiState(
+//                    isSuccess = false,
+//                    errMessage = it.errorMsg,
+//                    isRefresh = isRefresh,
+//                    listData = arrayListOf<HomeBean>()
+//                )
+//            homeData.value = listDataUiState
+//        })
+//    }
 }

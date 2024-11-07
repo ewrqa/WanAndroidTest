@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 fun <T> BaseViewModel.request(
     block:suspend()->BaseResponse<T>,
     //livedata数据
-    requestState: () -> Unit,
+    requestState: MutableLiveData<ResultState<T>>,
     //是否显示加载框
     isShowDialog:Boolean=false,
     showDialogMessage:String="请求网络中，请稍等"
