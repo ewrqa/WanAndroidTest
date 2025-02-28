@@ -1,12 +1,9 @@
 package com.example.wanandroidtest.data.bean
-
 import java.io.Serializable
-
 /**
  * <p>项目名称:WanAndroidTest</p>
  * <p>包名:com.example.wanandroidtest.data.bean</p>
  * <p>简述:</p>
- *
  * @author 张凯涛
  * @date 2024/8/8
  */

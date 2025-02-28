@@ -8,21 +8,32 @@
     <fragment
         android:id="@+id/main_fragment"
         android:name="com.example.wanandroidtest.ui.fragment.MainFragment"
-        tools:layout="@layout/fragment_main"
-        />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainfragment_to_collectFragment"
+            app:destination="@+id/collectFragment"
+            />
+    </fragment>
+
+<!--    个人中心-->
     <fragment
         android:id="@+id/fragment_me"
         android:name="com.example.wanandroidtest.ui.fragment.me.MeFragment"
         tools:layout="@layout/fragment_me"
         />
+<!--   收藏-->
+    <fragment
+        android:id="@+id/collectFragment"
+        android:name="com.example.wanandroidtest.ui.fragment.collect.CollectFragment"
+        android:label="CollectFragment"
+        />
+
    <fragment
        android:id="@+id/project_fragment"
        android:name="com.example.wanandroidtest.ui.fragment.project.ProjectFragment"
       tools:layout="@layout/project_fragment"
        >
    </fragment>
-
-
     <fragment
         android:id="@+id/system_fragment"
         android:name="com.example.wanandroidtest.ui.fragment.system.SystemFragment"
@@ -43,8 +54,6 @@
         android:name="com.example.wanandroidtest.ui.activity.loginregister.LoginActivity"
         >
     </activity>
-
-
     <activity android:id="@+id/register_activity"
         android:name="com.example.wanandroidtest.ui.activity.loginregister.RegisterActivity"
         tools:layout="@layout/activity_register"

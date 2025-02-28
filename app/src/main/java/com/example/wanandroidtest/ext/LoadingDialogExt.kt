@@ -11,12 +11,10 @@ import com.example.wanandroidtest.R
  * <p>项目名称:WanAndroidTest</p>
  * <p>包名:com.example.wanandroidtest.ext</p>
  * <p>简述:加载框的显示</p>
- *
  * @author 张凯涛
  * @date 2024/8/1
  */
     private  var loadingDialog: MaterialDialog?=null
-
     //为了兼容 旧版本的android
     fun AppCompatActivity.showLoadingEXT(message:String="请求网络中"){
         //判断当前是否在结束 在不结束的时显示
@@ -37,7 +35,6 @@ import com.example.wanandroidtest.R
             loadingDialog?.show()
         }
     }
-
     fun Fragment.showLoadingExt(message: String = "请求网络中") {
         activity?.let {
             if (!it.isFinishing) {
@@ -53,9 +50,6 @@ import com.example.wanandroidtest.R
             }
         }
     }
-
-
-
     //关闭
     fun Activity.dismissLoadingExt(){
         loadingDialog?.dismiss()

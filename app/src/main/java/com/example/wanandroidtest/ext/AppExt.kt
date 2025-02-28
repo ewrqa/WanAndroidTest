@@ -63,8 +63,9 @@ fun AppCompatActivity.showMessage(
 //            getActionButton(WhichButton.NEGATIVE).updateTextColor(SettingUtil.getColor(this@showMessage))
         }
 }
+
 /**
- 登录拦截   状态判断
+ 登录状态的拦截
  */
 fun NavController.jumpByLogin(block: (NavController)-> Unit){
     if(CacheUtil.isLogin()){

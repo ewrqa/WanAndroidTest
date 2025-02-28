@@ -9,6 +9,7 @@ import com.example.wanandroidtest.base.BaseActivity
 import com.example.wanandroidtest.databinding.ActivityRegisterBinding
 import com.example.wanandroidtest.ext.showMessage
 import com.example.wanandroidtest.ext.showToast
+import com.example.wanandroidtest.util.CacheUtil
 import com.example.wanandroidtest.viewmodel.state.loginregister.LoginViewModel
 
 /**
@@ -38,15 +39,17 @@ class RegisterActivity :BaseActivity<LoginViewModel,ActivityRegisterBinding>(){
             viewModel.mutableLiveData.observe(this, Observer {
                 resultState->
                 parseState(resultState,{
-                        finish()
+                    //存储注册状态
+                    CacheUtil.setLogin(true)
+                    finish()
                 },{
                     showMessage(it.errorMsg)
                 })
             })
     }
-    inner class  ProxyCClick(){
+    inner class  ProxyCClick{
         /**
-         * 登录
+         * 登录 与注册
          */
         fun  register(){
             when{
@@ -55,14 +58,14 @@ class RegisterActivity :BaseActivity<LoginViewModel,ActivityRegisterBinding>(){
                 viewModel.confirmpassword.get().isEmpty()->"请输入确认密码".showToast(this@RegisterActivity)
                 viewModel.password.get().length<6->"密码最少6位".showToast(this@RegisterActivity)
                 viewModel.password.get()!=viewModel.confirmpassword.get()->"密码不一致".showToast(this@RegisterActivity)
-                else ->viewModel.register(
+                else ->viewModel.registerAndLogin(
+                    /** 获取输入的用户名与密码*/
                     viewModel.username.get(),
                     viewModel.password.get(),
                     viewModel.confirmpassword.get()
                 )
             }
         }
-
         /**
          * 清空
           */

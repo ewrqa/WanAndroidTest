@@ -8,6 +8,9 @@ import com.example.jetpackmvvm.callback.databing.BooleanObservable
 import com.example.jetpackmvvm.callback.databing.StringObservable
 import com.example.jetpackmvvm.ext.request
 import com.example.wanandroidtest.data.bean.LoginBean
+import com.example.wanandroidtest.data.bean.UserInfoBean
+import com.example.wanandroidtest.data.request.HttpRequestCoroutine
+import com.example.wanandroidtest.data.request.HttpRequestManager
 import com.example.wanandroidtest.network.apiservice
 /**
  * <p>项目名称:WanAndroidTest</p>
@@ -22,24 +25,21 @@ class LoginViewModel : BaseViewModel() {
     var username = StringObservable()
     var password = StringObservable()
     var confirmpassword = StringObservable()
-
     //输入框,显示的逻辑状态
     var showPwd = BooleanObservable()
-
     var isepassword = BooleanObservable()
-
     //可观察的livedata
-    val mutableLiveData = MutableLiveData<ResultState<LoginBean>>()
+    val mutableLiveData = MutableLiveData<ResultState<UserInfoBean>>()
     fun login(username: String, password: String) {
         request({ apiservice.login(username, password) }, mutableLiveData,
             true, "正在登陆---")
     }
-
-    fun register(username: String, password: String, repassword: String) {
-        request({ apiservice.register(username, password, repassword) }, mutableLiveData,
+    //注册
+    fun registerAndLogin(username: String, password: String, repassword: String) {
+        request(
+            { HttpRequestCoroutine.registerAndLogin(username,password,repassword) }, mutableLiveData,
             true, "正在注册")
     }
-
     /**
      *  设置 登录与注册文本框逻辑
      *  ObservableInt   当输出发生改变的时候凡事绑定的都会发生改变

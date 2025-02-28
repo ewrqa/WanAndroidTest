@@ -1,10 +1,12 @@
 package com.example.wanandroidtest.ui.activity.loginregister
 import android.os.Bundle
+import android.util.Log
 import android.widget.CompoundButton
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.jetpackmvvm.ext.parseState
 import com.example.wanandroidtest.R
+import com.example.wanandroidtest.appViewModel
 import com.example.wanandroidtest.base.BaseActivity
 import com.example.wanandroidtest.databinding.ActivityLoginBinding
 import com.example.wanandroidtest.ext.myStartActivity
@@ -12,9 +14,10 @@ import com.example.wanandroidtest.ext.showMessage
 import com.example.wanandroidtest.ext.showToast
 import com.example.wanandroidtest.util.CacheUtil
 import com.example.wanandroidtest.viewmodel.state.loginregister.LoginViewModel
-
+/**
+ * 用户登录页面与注册页面
+ */
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
-
     private val loginViewModel: LoginViewModel by viewModels()
     override fun layoutId(): Int {
         return R.layout.activity_login
@@ -38,8 +41,11 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
             parseState(resultState, {
            //记录登录过后的状态=
                 CacheUtil.setLogin(true)
+                CacheUtil.setUser(it)
+                appViewModel.userInfo.value=it
                 finish()
             }, {
+                Log.e("re","失败")
                 showMessage(it.errorMsg)
             })
         })

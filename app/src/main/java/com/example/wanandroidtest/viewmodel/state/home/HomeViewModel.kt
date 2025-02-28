@@ -1,5 +1,6 @@
 package com.example.wanandroidtest.viewmodel.state.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.jetpackmvvm.ResultState
 import com.example.jetpackmvvm.base.BaseViewModel
@@ -8,7 +9,6 @@ import com.example.wanandroidtest.data.bean.BannerBean
 import com.example.wanandroidtest.data.bean.HomeBean
 import com.example.wanandroidtest.data.bean.ListDataUiState
 import com.example.wanandroidtest.data.request.HttpRequestManager
-import com.example.wanandroidtest.data.request.httpRequestManager
 import com.example.wanandroidtest.network.apiservice
 import me.hgj.jetpackmvvm.ext.request
 
@@ -33,8 +33,6 @@ class HomeViewModel : BaseViewModel() {
     fun getBannerData(){
        request({ apiservice.banner()},bannerData,false)
     }
-
-
     /**
      *   首页列表数据获取
      *   刷新从第一页开始

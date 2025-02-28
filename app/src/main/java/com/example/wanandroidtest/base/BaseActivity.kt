@@ -9,7 +9,6 @@ import com.example.wanandroidtest.ext.showLoadingEXT
  * <p>项目名称:WanAndroidTest</p>
  * <p>包名:com.example.wanandroidtest.base</p>
  * <p>简述:activity的基类</p>
- *
  * @author 张凯涛
  * @date 2024/8/1
  */

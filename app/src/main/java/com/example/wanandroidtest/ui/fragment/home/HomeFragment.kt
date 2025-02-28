@@ -27,7 +27,6 @@ class HomeFragment :BaseFragment<HomeViewModel,HomeFragmentBinding>(){
       return  R.layout.home_fragment
     }
     override fun initView(savedInstanceState: Bundle?) {
-
         loadSir=loadServiceInit(myDataBinding.includeList.includeRecyclerview.swipeRefresh){
             loadSir.showLoading()
             viewModel.getBannerData()
@@ -56,7 +55,6 @@ class HomeFragment :BaseFragment<HomeViewModel,HomeFragmentBinding>(){
       viewModel.getBannerData()
     }
     override fun createObserver() {
-
 //        viewModel.bannerData.observe(this, Observer { resultState->
 //            parseState(resultState,{ data->
 //              val headview=  LayoutInflater.from(context).inflate(R.layout.home_fragment,null).apply {
