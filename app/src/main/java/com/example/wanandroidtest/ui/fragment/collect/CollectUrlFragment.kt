@@ -15,12 +15,9 @@ import com.example.wanandroidtest.viewmodel.state.collect.CollectViewModel
  * @date 2025/2/28
  */
 class CollectUrlFragment :BaseFragment<CollectViewModel,FragmentCollecturlBinding>(){
-
     override fun layoutId(): Int {
         return  R.layout.fragment_collecturl
     }
-
     override fun initView(savedInstanceState: Bundle?) {
-
     }
 }

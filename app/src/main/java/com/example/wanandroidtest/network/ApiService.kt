@@ -25,7 +25,7 @@ interface ApiService {
         @Field("username")username:String,
         @Field("password")password:String
     ):ApiResponse<UserInfoBean>
-    /**
+    /**·
      *  注册接口
      */
     @FormUrlEncoded
@@ -55,4 +55,10 @@ interface ApiService {
      */
     @GET("article/top/json")
     suspend fun  getHomeTopArticle():ApiResponse<ArrayList<HomeBean>>
+    /**
+     *  获取收藏文章列表数据
+     */
+    @GET("lg/collect/list/0/json")
+    suspend fun  getCollectList(@Path("page")page:Int):ApiResponse<ApiPageBean<ArrayList<CollectBean>>>
+
 }

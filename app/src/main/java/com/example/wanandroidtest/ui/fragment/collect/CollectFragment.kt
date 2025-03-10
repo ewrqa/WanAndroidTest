@@ -31,17 +31,18 @@ class CollectFragment :BaseFragment<CollectViewModel,FragmentCollectBinding>(){
 
     //初始化 添加fragment与集合当中
     init {
-        fragments.add(CollectUrlFragment())
+        //收藏
         fragments.add(CollectArticleFragment())
-
+        //网址
+        fragments.add(CollectUrlFragment())
     }
     override fun initView(savedInstanceState: Bundle?) {
         //初始化viewpager2
         myDataBinding.collectViewPager.init(this,fragments)
         //初始化导航栏 文本及线条样式
         myDataBinding.collectViewpagerIndicator.bindViePager2(myDataBinding.collectViewPager,titleData)
-        //设置文本
-        myDataBinding.includeToolbar.toolbar.setTitle("")
+//        //设置文本
+//        myDataBinding.includeToolbar.toolbar.setTitle("")
         //设置图标
         myDataBinding.includeToolbar.toolbar.setNavigationIcon(R.drawable.ic_back)
         //点击事件的跳转

@@ -21,7 +21,6 @@ class ScaleTransitionPagerTitleView  (context: Context):ColorTransitionPagerTitl
            //进入时文字变大
             scaleX=minScale+(1.0f-minScale)*enterPercent
             scaleY=minScale+(1.0f-minScale)*enterPercent
-
     }
     /**
      * 离开时的动画

@@ -133,7 +133,7 @@ fun  ViewPager2.initMain(fragment:Fragment):ViewPager2{
                //设置文本
                text=mTitleList[index].toHtml()
                //设置大小
-               textSize=20f
+               textSize=15f
                //未选中的颜色
                normalColor=Color.WHITE
                //选中的颜色

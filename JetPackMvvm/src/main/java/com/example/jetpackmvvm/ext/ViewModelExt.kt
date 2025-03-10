@@ -9,10 +9,14 @@ import com.example.jetpackmvvm.base.BaseDbFragment
 import com.example.jetpackmvvm.base.BaseViewModel
 import com.example.jetpackmvvm.network.AppException
 import com.example.jetpackmvvm.network.BaseResponse
+import com.example.jetpackmvvm.network.ExceptionHandle
 import com.example.jetpackmvvm.paresException
 import com.example.jetpackmvvm.paresResult
 import com.example.jetpackmvvm.util.loge
+import com.zhpan.bannerview.BaseViewHolder
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 /**
  * <p>项目名称:WanAndroidTest</p>
@@ -54,8 +58,77 @@ fun <T> BaseViewModel.request(
             requestState.paresException(it)
         }
     }
-
 }
+/**
+ * viewmodel层级过滤好请求，失败抛出异常
+ * @param block  请求的方法体
+ * @param success 成功的回调
+ * @param error 失败的回调
+ * @param isShowDialog 是否显示加载框
+ * @param loadingMessage 加载中的文字
+ * runCatching 为viewmodelScope的作用域，随着viewmodel的消失而解释
+ */
+fun<T> BaseViewModel.request(
+    block: suspend () -> BaseResponse<T>,
+    success: (T)->Unit,
+    error:(AppException)->Unit={},
+    isShowDialog: Boolean=false,
+    loadingMessage:String="请求网络中，，，"
+):Job{
+    return  viewModelScope.launch {
+     runCatching {
+         //弹窗展示
+        if(isShowDialog)loadingChange.showDialog.postValue(loadingMessage)
+         block()//执行请求头体
+     }.onSuccess {
+         //不显示弹窗
+         loadingChange.dismissDialog.postValue(false)
+         runCatching {
+            executeResponse(it){
+                t->success(t)
+            }
+         }.onFailure{
+             //打印错误信息
+             e->e.message?.loge()
+             //打印错误栈信息
+             e.printStackTrace()
+             //失败回调
+             error(ExceptionHandle.handlerException(e))
+         }
+     }.onFailure {
+         //失败显示弹框
+         loadingChange.dismissDialog.postValue(false)
+         it.message?.loge()
+         //打印错误栈信息
+         it.printStackTrace()
+         //失败回调
+         error(ExceptionHandle.handlerException(it))
+     }
+    }
+}
+
+/**
+ *   请求结果过滤 判断返回的状态码是否正确
+ */
+suspend  fun<T> executeResponse(
+    response:BaseResponse<T>,
+    success: suspend  CoroutineScope.(T) -> Unit
+){
+    coroutineScope {
+        when{
+            response.isSuccess()->{
+                success(response.getResponseData())
+            }else->{
+                throw  AppException(
+                    response.getResponseCode(),
+                    response.getResponseMessage(),
+                )
+            }
+        }
+    }
+}
+
+
 /**
  * 显示页面状态，这里有个技巧，成功回调在第一个，其后两个带默认值的回调可省
  * @param resultState 接口返回值
