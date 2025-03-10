@@ -27,7 +27,6 @@ class CollectArticleaAdapter(data:ArrayList<CollectBean>)
      */
     private val   Ariticle=1
     private val   Project=2
-
     /**
      * 设置代理类型
      * 重写该方法
