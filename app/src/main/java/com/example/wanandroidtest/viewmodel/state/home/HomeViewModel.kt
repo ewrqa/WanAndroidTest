@@ -1,5 +1,6 @@
 package com.example.wanandroidtest.viewmodel.state.home
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.jetpackmvvm.ResultState
 import com.example.jetpackmvvm.base.BaseViewModel
@@ -8,7 +9,6 @@ import com.example.wanandroidtest.data.bean.BannerBean
 import com.example.wanandroidtest.data.bean.HomeBean
 import com.example.wanandroidtest.data.bean.ListDataUiState
 import com.example.wanandroidtest.data.request.HttpRequestManager
-import com.example.wanandroidtest.data.request.httpRequestManager
 import com.example.wanandroidtest.network.apiservice
 import me.hgj.jetpackmvvm.ext.request
 
@@ -24,11 +24,11 @@ class HomeViewModel : BaseViewModel() {
     //页码
     var page=0
     //banner  livedata
-    val bannerData = MutableLiveData<ResultState<ArrayList<BannerBean>>>()
+    var bannerData: MutableLiveData<ResultState<ArrayList<BannerBean>>> = MutableLiveData()
     // homeBean   livedata
     val homeData = MutableLiveData<ListDataUiState<HomeBean>>()
     /**
-     * 首页轮播图
+     * 获取首页轮播图
      */
     fun getBannerData(){
        request({ apiservice.banner()},bannerData,false)

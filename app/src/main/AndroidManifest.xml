@@ -19,6 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".base.MainActivity33"
+            android:exported="true" />
+        <activity
+            android:name=".ui.fragment.collect.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/AppTheme.Fullscreen" />
+        <activity
             android:name=".ui.fragment.home.HomeFragment"
             android:exported="true" />
         <activity

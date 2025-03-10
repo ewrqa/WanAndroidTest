@@ -24,8 +24,8 @@ interface ApiService {
     suspend fun login(
         @Field("username")username:String,
         @Field("password")password:String
-    ):ApiResponse<LoginBean>
-    /**
+    ):ApiResponse<UserInfoBean>
+    /**·
      *  注册接口
      */
     @FormUrlEncoded
@@ -35,6 +35,11 @@ interface ApiService {
         @Field("password")password: String,
         @Field("repassword")repassword: String,
     ):ApiResponse<LoginBean>
+    /**
+     *  个人中心积分与排名
+     */
+    @GET("/lg/coin/userinfo/json")
+    suspend fun getIntegral():ApiResponse<IntegralBean>
     /**
      *  banner
      */
@@ -50,4 +55,10 @@ interface ApiService {
      */
     @GET("article/top/json")
     suspend fun  getHomeTopArticle():ApiResponse<ArrayList<HomeBean>>
+    /**
+     *  获取收藏文章列表数据
+     */
+    @GET("lg/collect/list/0/json")
+    suspend fun  getCollectList(@Path("page")page:Int):ApiResponse<ApiPageBean<ArrayList<CollectBean>>>
+
 }

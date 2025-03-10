@@ -22,7 +22,7 @@ open class BaseViewModel :ViewModel(){
 
         val  showDialog by lazy { EventLiveData<String>() }
 
-        val  dismissDialog by  lazy { EventLiveData<String>() }
+        val  dismissDialog by  lazy { EventLiveData<Boolean>() }
 
     }
 }

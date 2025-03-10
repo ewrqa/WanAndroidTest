@@ -10,6 +10,7 @@
 <!--      name 说明该fragment是navHost-->
 <!--      navGraph表示 显示的fragment-->
 
+
      <fragment
          android:id="@+id/host_fragment"
          android:layout_width="match_parent"

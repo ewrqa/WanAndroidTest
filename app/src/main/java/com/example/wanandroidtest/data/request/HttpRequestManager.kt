@@ -1,16 +1,12 @@
 package com.example.wanandroidtest.data.request
-
+import android.util.Log
 import com.example.jetpackmvvm.network.AppException
-import com.example.wanandroidtest.data.bean.ApiPagerRestponse
-import com.example.wanandroidtest.data.bean.ApiResponse
-import com.example.wanandroidtest.data.bean.HomeBean
-import com.example.wanandroidtest.data.bean.LoginBean
+import com.example.wanandroidtest.data.bean.*
 import com.example.wanandroidtest.network.apiservice
 import com.example.wanandroidtest.util.CacheUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
-
 /**
  * <p>项目名称:WanAndroidTest</p>
  * <p>包名:com.example.wanandroidtest.data.request</p>
@@ -23,12 +19,12 @@ import kotlinx.coroutines.withContext
 //  顶层方法 提供对外的快捷方法
 /**
  * 属性委托
+ * 对外调用
  */
-val  httpRequestManager:HttpRequestManager by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED){
+val  HttpRequestCoroutine:HttpRequestManager by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED){
     HttpRequestManager()
 }
 class HttpRequestManager {
-
     /**
      * 首页文章数据和置顶文章数据
      */
@@ -45,13 +41,17 @@ class HttpRequestManager {
             }
         }
     }
-
     /**
      *  注册并登录的接口
      */
-    suspend fun  registerAndLogin(username:String,password:String,repassword:String):ApiResponse<LoginBean>{
+    suspend fun  registerAndLogin(username:String,password:String,repassword:String):ApiResponse<UserInfoBean>{
         val register = apiservice.register(username, password, repassword)
         if(register.isSuccess()){
+            Log.e("re","注册成功")
+            val login = apiservice.login(username, password)
+            if(login.isSuccess()){
+                Log.e("re","登录成功")
+            }
             return apiservice.login(username, password)
         }else{
             throw AppException(register.errorCode,register.errorMsg)

@@ -12,6 +12,7 @@
             type="com.example.wanandroidtest.ui.fragment.me.MeFragment.ProxyCClick" />
     </data>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/me_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -43,6 +44,7 @@
                             app:layout_constraintHorizontal_bias="0.047"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
+                            circleImageUrl="@{viewmodel.imageUrl}"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -90,7 +92,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
-                                android:onClick="@{()->click.goLogin()}"
+                                android:onClick="@{()->click.integral()}"
                                 >
                                 <ImageView
                                     android:id="@+id/jifen"
@@ -100,7 +102,6 @@
                                     android:layout_height="24dp"
                                     android:src="@drawable/jifen"
                                     />
-
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -147,6 +148,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
+                                android:onClick="@{()->click.collect()}"
                                 >
 
                                 <ImageView
@@ -181,6 +183,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
+                                android:onClick="@{()->click.ariticle()}"
                                 >
 
                                 <ImageView
@@ -212,6 +215,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
+                                android:onClick="@{()->click.todo()}"
                                 >
                                 <ImageView
                                     android:id="@+id/task"

@@ -1,10 +1,13 @@
 package com.example.wanandroidtest.ui.adapater
-
 import android.view.View
+import com.example.jetpackmvvm.base.BaseViewModel
 import com.example.wanandroidtest.R
 import com.example.wanandroidtest.data.bean.BannerBean
+import com.example.wanandroidtest.data.bean.CollectBean
 import com.example.wanandroidtest.weight.banner.HomeBannerVIewHolder
 import com.zhpan.bannerview.BaseBannerAdapter
+import com.zhpan.bannerview.BaseViewHolder
+import java.util.*
 
 /**
  * <p>项目名称:WanAndroidTest</p>
@@ -20,7 +23,7 @@ class HomeBannerAdapater :BaseBannerAdapter<BannerBean,HomeBannerVIewHolder>(){
     }
 
     override fun getLayoutId(p0: Int): Int {
-       return R.layout.banner_itemhome
+        return R.layout.banner_itemhome
     }
 
     override fun onBind(p0: HomeBannerVIewHolder?, p1: BannerBean?, p2: Int, p3: Int) {
