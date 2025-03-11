@@ -10,15 +10,128 @@
     app:cardElevation="4dp"
     app:cardCornerRadius="4dp"
     >
-
-<!--    用户点击的反馈体验感更加-->
+    <!--    用户点击的反馈体验感更加-->
     <!--    android:foreground="?android:attr/selectableItemBackground"-->
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
+        <TextView
+            android:id="@+id/item_collect_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:textSize="13sp"
+            android:textColor="@color/colorBlack666"
+            android:text="@string/collect_user_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/item_collect_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textSize="11sp"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/collect_top"
+            app:layout_constraintTop_toTopOf="@id/item_collect_author_name"
+            app:layout_constraintBottom_toBottomOf="@id/item_collect_author_name"
+            app:layout_constraintStart_toEndOf="@id/item_collect_author_name"
+            />
 
+        <TextView
+            android:id="@+id/item_collect_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textSize="11sp"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/collect_new"
+            app:layout_constraintTop_toTopOf="@id/item_collect_top"
+            app:layout_constraintBottom_toBottomOf="@id/item_collect_top"
+            app:layout_constraintStart_toEndOf="@id/item_collect_top"
+            />
 
+        <TextView
+            android:id="@+id/item_collect_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textSize="11sp"
+            android:textColor="@android:color/holo_green_dark"
+            android:text="@string/collect_type"
+            app:layout_constraintTop_toTopOf="@id/item_collect_new"
+            app:layout_constraintBottom_toBottomOf="@id/item_collect_new"
+            app:layout_constraintStart_toEndOf="@id/item_collect_new"
+            />
 
+        <TextView
+            android:id="@+id/item_collect_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textSize="11sp"
+            android:textColor="@color/colorBlack666"
+            android:text="@string/collect_time"
+            app:layout_constraintBottom_toBottomOf="@id/item_collect_author_name"
+            app:layout_constraintTop_toTopOf="@id/item_collect_author_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
+        <TextView
+            android:id="@+id/item_collect_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/collect_message"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/item_collect_author_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
+        <TextView
+            android:id="@+id/item_collect_types"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/collect_type"
+            android:textColor="@color/colorBlack666"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_collect_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
+        <com.example.wanandroidtest.weight.custom.CollectView
+            android:id="@+id/item_collect_collect"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/item_collect_types"
+            app:layout_constraintBottom_toBottomOf="@id/item_collect_types"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

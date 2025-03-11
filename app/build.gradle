@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-kapt'
 }
 android {
-    compileSdk 30
+    compileSdk 29
     defaultConfig {
         applicationId "com.example.wanandroidtest"
         minSdk 21
@@ -12,6 +12,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 29
+        minSdkVersion 30
     }
 
     buildTypes {
@@ -32,6 +34,7 @@ android {
         dataBinding = true
         viewBinding = true
     }
+    compileSdkVersion 29
 }
 
 dependencies {
