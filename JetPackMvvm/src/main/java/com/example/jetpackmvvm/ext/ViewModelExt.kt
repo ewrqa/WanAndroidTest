@@ -13,11 +13,11 @@ import com.example.jetpackmvvm.network.ExceptionHandle
 import com.example.jetpackmvvm.paresException
 import com.example.jetpackmvvm.paresResult
 import com.example.jetpackmvvm.util.loge
-import com.zhpan.bannerview.BaseViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+
 /**
  * <p>项目名称:WanAndroidTest</p>
  * <p>包名:com.example.jetpackmvvm.ext</p>
@@ -106,19 +106,24 @@ fun<T> BaseViewModel.request(
      }
     }
 }
+/**
+ *  viewmodel做一些耗时操作的时候
+ */
+
 
 /**
  *   请求结果过滤 判断返回的状态码是否正确
  */
-suspend  fun<T> executeResponse(
-    response:BaseResponse<T>,
-    success: suspend  CoroutineScope.(T) -> Unit
-){
+suspend fun <T> executeResponse(
+    response: BaseResponse<T>,
+    success: suspend CoroutineScope.(T) -> Unit,
+) {
     coroutineScope {
-        when{
-            response.isSuccess()->{
+        when {
+            response.isSuccess() -> {
                 success(response.getResponseData())
-            }else->{
+            }
+            else -> {
                 throw  AppException(
                     response.getResponseCode(),
                     response.getResponseMessage(),

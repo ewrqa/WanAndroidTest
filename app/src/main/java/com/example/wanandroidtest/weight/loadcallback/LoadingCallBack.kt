@@ -15,7 +15,6 @@ import com.kingja.loadsir.callback.Callback
  */
 class LoadingCallBack :Callback(){
     override fun onCreateView(): Int {
-
         return  R.layout.layout_loading
     }
     override fun onReloadEvent(context: Context?, view: View?): Boolean {

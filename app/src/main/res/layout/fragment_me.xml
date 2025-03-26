@@ -29,6 +29,7 @@
                     android:layout_height="match_parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/me_linear"
                         android:layout_width="match_parent"
                         android:layout_height="172dp"
                         android:background="@color/colorAccent"
@@ -129,7 +130,6 @@
                                     android:textColor="@color/colorAccent"
                                     android:textSize="15sp"
                                     android:textStyle="bold"
-
                                     tools:text="100000" />
 
                                 <ImageView
@@ -312,6 +312,7 @@
                                     />
                             </RelativeLayout>
                             <RelativeLayout
+                                android:onClick="@{()->click.setUp()}"
                                 android:layout_width="match_parent"
                                 android:layout_height="50dp"
                                 >

@@ -1,0 +1,55 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.example.wanandroidtest.weight.preference.PreferenceCategory
+        android:key="base"
+        app:title="@string/messages_header">
+        <com.example.wanandroidtest.weight.preference.CheckBoxPreference
+            android:summary="@string/setting_topTip"
+            app:key="top"
+            app:title="@string/setting_topTitle"
+            app:useSimpleSummaryProvider="true" />
+        <Preference
+            android:title="@string/setting_clearCache"
+            app:key="clear" />
+        <Preference
+            android:summary="@string/setting_outLogin"
+            android:title="@string/setting_out"
+            app:key="out" />
+    </com.example.wanandroidtest.weight.preference.PreferenceCategory>
+
+    <com.example.wanandroidtest.weight.preference.PreferenceCategory
+        android:key="other"
+        app:title="@string/message_header2">
+
+        <Preference
+            android:key="animation"
+            android:summary="@string/setting_listAnimationMessage"
+            android:title="@string/setting_listAnimation" />
+        <com.example.wanandroidtest.weight.preference.IconPreference
+            android:key="color"
+            android:summary="@string/setting_themeColorMessage"
+            android:title="@string/setting_themeColor" />
+    </com.example.wanandroidtest.weight.preference.PreferenceCategory>
+    <com.example.wanandroidtest.weight.preference.PreferenceCategory
+        android:key="about"
+        app:title="@string/message_header3">
+        <Preference
+            android:summary="@string/setting_nowVersion"
+            app:key="version"
+            app:title="@string/setting_version" />
+
+        <Preference
+            android:summary="@string/setting_authorName"
+            app:key="author"
+            app:title="@string/setting_author" />
+
+        <Preference
+            android:summary="@string/setting_sourceCodeUrl"
+            app:key="sourceCode"
+            app:title="@string/setting_sourceCode" />
+        <Preference
+            android:summary="@string/setting_copyright2"
+            app:key="copyright"
+            app:title="@string/setting_copyright" />
+    </com.example.wanandroidtest.weight.preference.PreferenceCategory>
+</PreferenceScreen>

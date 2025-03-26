@@ -3,17 +3,14 @@
     >
     <data>
     </data>
-
-
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground">
 
         <include
-            android:id="@+id/collect_artucke_recyclerview"
-            layout="@layout/include_recyclerview"
-            />
+            android:id="@+id/collect_article_recyclerview"
+            layout="@layout/include_recyclerview" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

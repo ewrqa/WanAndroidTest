@@ -1,4 +1,4 @@
-package com.example.wanandroidtest.ui.adapater
+package com.example.wanandroidtest.ui.adapter
 
 /**
  * 作者　: hegaojian

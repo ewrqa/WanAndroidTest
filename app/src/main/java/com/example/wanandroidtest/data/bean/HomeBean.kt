@@ -1,61 +1,63 @@
 package com.example.wanandroidtest.data.bean
 
-data class HomeBean(
-    val `data`: Data,
-    val errorCode: Int,
-    val errorMsg: String
-){
-    data class Data(
-        val curPage: Int,
-        val datas: List<DataX>,
-        val offset: Int,
-        val over: Boolean,
-        val pageCount: Int,
-        val size: Int,
-        val total: Int
-    ){
-        data class DataX(
-            val adminAdd: Boolean,
-            val apkLink: String,
-            val audit: Int,
-            val author: String,
-            val canEdit: Boolean,
-            val chapterId: Int,
-            val chapterName: String,
-            val collect: Boolean,
-            val courseId: Int,
-            val desc: String,
-            val descMd: String,
-            val envelopePic: String,
-            val fresh: Boolean,
-            val host: String,
-            val id: Int,
-            val isAdminAdd: Boolean,
-            val link: String,
-            val niceDate: String,
-            val niceShareDate: String,
-            val origin: String,
-            val prefix: String,
-            val projectLink: String,
-            val publishTime: Long,
-            val realSuperChapterId: Int,
-            val selfVisible: Int,
-            val shareDate: Long,
-            val shareUser: String,
-            val superChapterId: Int,
-            val superChapterName: String,
-            val tags: List<Tag>,
-            val title: String,
-            val type: Int,
-            val userId: Int,
-            val visible: Int,
-            val zan: Int
-        ){
-            data class Tag(
-                val name: String,
-                val url: String
-            )
-        }
-}
+import android.annotation.SuppressLint
+import android.os.Parcel
+import android.os.Parcelable
 
+@SuppressLint("ParcelCreator")
+data class HomeBean(
+    var curPage: Int,
+    var offset: Int,
+    var over: Boolean,
+    var pageCount: Int,
+    var size: Int,
+    var total: Int,
+    var adminAdd: Boolean,
+    var apkLink: String,
+    var audit: Int,
+    var author: String,
+    var canEdit: Boolean,
+    var chapterId: Int,
+    var chapterName: String,
+    var collect: Boolean,
+    var courseId: Int,
+    var desc: String,
+    var descMd: String,
+    var envelopePic: String,
+    var fresh: Boolean,
+    var host: String,
+    var id: Int,
+    val isAdminAdd: Boolean,
+    var link: String,
+    var niceDate: String,
+    var niceShareDate: String,
+    var origin: String,
+    var prefix: String,
+    var projectLink: String,
+    var publishTime: Long,
+    var realSuperChapterId: Int,
+    var selfVisible: Int,
+    var shareDate: Long,
+    var shareUser: String,
+    var superChapterId: Int,
+    var superChapterName: String,
+    var tags: List<Tag>,
+    var title: String,
+    var type: Int,
+    var userId: Int,
+    var visible: Int,
+    var zan: Int,
+) : Parcelable {
+    data class Tag(
+        var name: String,
+        var url: String,
+    )
+
+    override fun describeContents(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun writeToParcel(p0: Parcel?, p1: Int) {
+
+    }
 }

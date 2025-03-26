@@ -6,7 +6,7 @@ import com.example.wanandroidtest.R
 import com.example.wanandroidtest.base.BaseActivity
 import com.example.wanandroidtest.databinding.ActivityWelcomeBinding
 import com.example.wanandroidtest.ext.myStartActivity
-import com.example.wanandroidtest.ui.adapater.WelcomeBannerAdapter
+import com.example.wanandroidtest.ui.adapter.WelcomeBannerAdapter
 import com.example.wanandroidtest.util.CacheUtil
 import com.example.wanandroidtest.weight.banner.WelacomeBannerViewHolder
 import com.zhpan.bannerview.BannerViewPager

@@ -1,33 +1,16 @@
 package com.example.wanandroidtest.data.bean
 
 data class UserInfoBean(
-    val `data`: Data,
-    val errorCode: Int,
-    val errorMsg: String
-){data class Data(
-    val coinInfo: CoinInfo,
-    val userInfo: UserInfo
-){ data class CoinInfo(
-    val coinCount: Int,
-    val level: Int,
-    val nickname: String,
-    val rank: String,
-    val userId: Int,
-    val username: String
-)data class UserInfo(
-    val admin: Boolean,
-    val chapterTops: List<Any>,
-    val coinCount: Int,
-    val collectIds: List<Any>,
-    val email: String,
-    val icon: String,
-    val id: Int,
-    val nickname: String,
-    val password: String,
-    val publicName: String,
-    val token: String,
-    val type: Int,
-    val username: String
+
+    var admin: Boolean = false,
+    var chapterTops: List<String> = listOf(),
+    var collectIds: MutableList<String> = mutableListOf(),
+    var email: String = "",
+    var icon: String = "",
+    var id: String = "",
+    var nickname: String = "",
+    var password: String = "",
+    var token: String = "",
+    var type: Int = 0,
+    var username: String = "",
 )
- }
-   }

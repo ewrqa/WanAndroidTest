@@ -1,16 +1,12 @@
 package com.example.wanandroidtest.viewmodel.state.home
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.jetpackmvvm.ResultState
 import com.example.jetpackmvvm.base.BaseViewModel
 import com.example.jetpackmvvm.ext.request
-import com.example.wanandroidtest.data.bean.BannerBean
 import com.example.wanandroidtest.data.bean.HomeBean
 import com.example.wanandroidtest.data.bean.ListDataUiState
-import com.example.wanandroidtest.data.request.HttpRequestManager
+import com.example.wanandroidtest.data.request.HttpRequestCoroutine
 import com.example.wanandroidtest.network.apiservice
-import me.hgj.jetpackmvvm.ext.request
 
 /**
  * <p>项目名称:WanAndroidTest</p>
@@ -21,51 +17,65 @@ import me.hgj.jetpackmvvm.ext.request
  * @date 2024/8/7
  */
 class HomeViewModel : BaseViewModel() {
-    //页码
-    var page=0
-    //banner  livedata
-    var bannerData: MutableLiveData<ResultState<ArrayList<BannerBean>>> = MutableLiveData()
-    // homeBean   livedata
-    val homeData = MutableLiveData<ListDataUiState<HomeBean>>()
+    var page = 0
+
+    //创建列表和轮播图可观察的livedata
+    var homeLivedata = MutableLiveData<ListDataUiState<HomeBean>>()
+    var searchbykeydata = MutableLiveData<ListDataUiState<HomeBean>>()
+
     /**
-     * 获取首页轮播图
+     * 获取首页列表数据
+     * @param 是否进行刷洗
      */
-    fun getBannerData(){
-       request({ apiservice.banner()},bannerData,false)
+    fun getHomeList(isRefresh: Boolean) {
+        if (isRefresh) {
+            page = 0
+        }
+        request({ HttpRequestCoroutine.getHomeData(page) }, {
+            page++
+            val listDataUiState = ListDataUiState(
+                isRefresh = isRefresh,
+                isSuccess = true,
+                isEmpty = it.isEmpty(),
+                hasMore = it.hasMore(),
+                isFirstEmpty = isRefresh && it.isEmpty(),
+                listData = it.datas
+            )
+            homeLivedata.value = listDataUiState
+        }, {
+            val listDataUiState = ListDataUiState(
+                isRefresh = isRefresh,
+                isSuccess = false,
+                errMessage = it.errorMsg,
+                listData = arrayListOf<HomeBean>()
+            )
+            homeLivedata.value = listDataUiState
+        })
     }
+
     /**
-     *   首页列表数据获取
-     *   刷新从第一页开始
-     *   是否刷新
-     *
+     * 搜索
      */
-//    fun getHomeData(isRefresh: Boolean) {
-//        if (isRefresh) {
-//            page = 0
-//        }
-//        request({ httpRequestManager.getHomeData(page) }, {
-//            //请求成功
-//            page++
-//            val listDataUiState =
-//                ListDataUiState(
-//                    isSuccess = true,
-//                    isRefresh = isRefresh,
-//                    isEmpty = it.isEmpty(),
-//                    hasMore = it.hasMore(),
-//                    isFirstEmpty = isRefresh && it.isEmpty(),
-//                    listData = it.datas
-//                )
-//            homeData.value = listDataUiState
-//        }, {
-//            //请求失败
-//            val listDataUiState =
-//                ListDataUiState(
-//                    isSuccess = false,
-//                    errMessage = it.errorMsg,
-//                    isRefresh = isRefresh,
-//                    listData = arrayListOf<HomeBean>()
-//                )
-//            homeData.value = listDataUiState
-//        })
-//    }
+    fun searchHistoryData(isRefresh: Boolean, key: String) {
+        if (isRefresh) {
+            page = 0
+        }
+        request({ apiservice.getSearchDataByKey(page, key) }, {
+            val listDataUiState = ListDataUiState(isSuccess = true,
+                isRefresh = true,
+                isEmpty = it.isEmpty(),
+                hasMore = it.hasMore(),
+                isFirstEmpty = isRefresh && it.isEmpty(),
+                listData = it.datas
+            )
+            searchbykeydata.value = listDataUiState
+        }, {
+            val listDataUiState = ListDataUiState(isRefresh = isRefresh,
+                isSuccess = false,
+                errMessage = it.errorMsg,
+                listData = arrayListOf<HomeBean>()
+            )
+            searchbykeydata.value = listDataUiState
+        })
+    }
 }

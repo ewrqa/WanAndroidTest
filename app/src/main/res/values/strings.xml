@@ -38,6 +38,40 @@
     <string name="project_title">这是一个菜的扣jio的人写的项目</string>
     <string name="project_message">一个Jetpack结合MVVM的快速开发框架，基于MVVM模式集成谷歌官方推荐的JetPack组件库：LiveData、ViewModel、Lifecycle组件
         使用Kotlin语言，添加大量拓展函数，简化代码 加入Retrofit网络请求,协程，帮你简化各种操作，让你快速开发项目</string>
+    <string name="hot_search_items">热门搜索</string>
+    <string name="search_history">搜索历史</string>
+    <string name="remove_history">清空</string>
+    <string name="title_activity_settings_fragment">SettingsFragment</string>
 
+    <!-- Preference Titles -->
+    <string name="messages_header">基本设置</string>
+    <string name="message_header2">其他设置</string>
+    <string name="message_header3">关于</string>
+    <!-- Messages Preferences -->
+    <string name="setting_topTitle">显示指定文章</string>
+    <string name="setting_topTip">开启后首页会显示置顶文章</string>
+    <string name="setting_clearCache">清除缓存</string>
+    <string name="setting_out">退出</string>
+    <string name="setting_outLogin">退出登录</string>
+    <string name="setting_listAnimation">列表动画</string>
+    <string name="setting_listAnimationMessage">动画信息</string>
+    <string name="setting_">列表动画</string>
+    <string name="setting_themeColor">主题颜色</string>
+    <string name="setting_themeColorMessage">颜色</string>
+    <string name="setting_version">版本</string>
+    <string name="setting_nowVersion">当前版本</string>
+    <string name="setting_author">作者</string>
+    <string name="setting_authorName">菜的抠脚的安卓开发</string>
+    <string name="setting_sourceCode">项目源码</string>
+    <string name="setting_sourceCodeUrl">https://github.com/ewrqa/WanAndroidTest</string>
+    <string name="setting_copyright">版权</string>
+    <string name="setting_copyright2">没有版权随便玩</string>
 
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

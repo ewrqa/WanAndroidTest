@@ -3,62 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/main_fragment"
-    >
+    app:startDestination="@id/main_fragment">
     <fragment
         android:id="@+id/main_fragment"
         android:name="com.example.wanandroidtest.ui.fragment.MainFragment"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainfragment_to_collectFragment"
-            app:destination="@+id/collectFragment"
-            />
-    </fragment>
+            app:destination="@+id/collectFragment" />
+        <action
+            android:id="@+id/action_mainfragment_to_webviewFragment"
+            app:destination="@+id/fragment_webview" />
+        <action
+            android:id="@+id/action_mainfragment_to_sellectFragment"
+            app:destination="@id/fragment_select"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
-<!--    个人中心-->
+        <action
+            android:id="@+id/action_meFragment_to_setTingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <!--    个人中心-->
     <fragment
         android:id="@+id/fragment_me"
         android:name="com.example.wanandroidtest.ui.fragment.me.MeFragment"
-        tools:layout="@layout/fragment_me"
-        />
-<!--   收藏-->
+        tools:layout="@layout/fragment_me" />
+    <!--   收藏-->
     <fragment
         android:id="@+id/collectFragment"
         android:name="com.example.wanandroidtest.ui.fragment.collect.CollectFragment"
-        android:label="CollectFragment"
-        />
+        android:label="CollectFragment" />
+    <!--    系统设置-->
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.wanandroidtest.ui.fragment.setup.SettingsActivity$SettingsFragment"
+        android:label="SettingFragment" />
+    <!--    webview-->
+    <fragment
+        android:id="@+id/fragment_webview"
+        android:name="com.example.wanandroidtest.ui.webview.WebViewFragment"
+        android:label="WebViewFragment" />
+    <!--    搜索-->
+    <fragment
+        android:id="@+id/fragment_select"
+        android:name="com.example.wanandroidtest.ui.fragment.search.SelectFragment"
+        android:label="SelectFragment">
+        <action
+            android:id="@+id/action_selectFragment_to_fragment_searchForDetails"
+            app:destination="@id/fragment_searchForDetails" />
+    </fragment>
+    <!--    搜索详情-->
+    <fragment
+        android:id="@+id/fragment_searchForDetails"
+        android:name="com.example.wanandroidtest.ui.fragment.search.SearchForDetailsFragment"
+        android:label="SearchForDetails">
+        <action
+            android:id="@+id/action_searchForDetails_to_WebViewFragment"
+            app:destination="@id/fragment_webview" />
+    </fragment>
 
-   <fragment
-       android:id="@+id/project_fragment"
-       android:name="com.example.wanandroidtest.ui.fragment.project.ProjectFragment"
-      tools:layout="@layout/project_fragment"
-       >
-   </fragment>
+    <fragment
+        android:id="@+id/project_fragment"
+        android:name="com.example.wanandroidtest.ui.fragment.project.ProjectFragment"
+        tools:layout="@layout/project_fragment" />
     <fragment
         android:id="@+id/system_fragment"
         android:name="com.example.wanandroidtest.ui.fragment.system.SystemFragment"
-        tools:layout="@layout/system_fragment"
-        >
-    </fragment>
+        tools:layout="@layout/system_fragment" />
 
     <fragment
         android:id="@+id/public_fragment"
         android:name="com.example.wanandroidtest.ui.fragment.public.PublicFragmetn"
-        tools:layout="@layout/public_fragment"
-        >
-    </fragment>
+        tools:layout="@layout/public_fragment" />
 
     <activity
         android:id="@+id/login_activity"
-        tools:layout="@layout/activity_login"
         android:name="com.example.wanandroidtest.ui.activity.loginregister.LoginActivity"
-        >
-    </activity>
-    <activity android:id="@+id/register_activity"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/register_activity"
         android:name="com.example.wanandroidtest.ui.activity.loginregister.RegisterActivity"
-        tools:layout="@layout/activity_register"
-        >
-    </activity>
+        tools:layout="@layout/activity_register" />
 
     <action
         android:id="@+id/action_to_loginActivity"
@@ -66,6 +94,5 @@
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"
-        />
+        app:popExitAnim="@anim/slide_out_right" />
 </navigation>

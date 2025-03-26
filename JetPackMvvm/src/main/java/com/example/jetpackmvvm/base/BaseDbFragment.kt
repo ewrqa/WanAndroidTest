@@ -105,11 +105,11 @@ abstract  class BaseDbFragment <VM : BaseViewModel,DB:ViewDataBinding>:Fragment(
         if(lifecycle.currentState==Lifecycle.State.STARTED){
             //页面显示的时候加载数据
              handler.postDelayed({
-                 NetworkStateManager.instance.mNetworkStateCallback.observeInFragment(this){
+                 NetworkStateManager.instance.mNetworkStateCallback.observeInFragment(this) {
                      onNetworkStateChange(it)
                  }
                  lazyData()
-             },300)
+             }, 500)
         }
     }
     open  fun  initData(){}

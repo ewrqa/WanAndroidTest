@@ -4,15 +4,12 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.widget.RelativeLayout
 import com.blankj.utilcode.util.VibrateUtils
 import com.example.wanandroidtest.R
 import com.example.wanandroidtest.util.CacheUtil
 import me.hgj.jetpackmvvm.ext.nav
 import me.hgj.jetpackmvvm.ext.navigateAction
 import per.goweii.reveallayout.RevealLayout
-import java.io.FileDescriptor
-import java.time.format.DecimalStyle
 
 /**
  * <p>项目名称:WanAndroidTest</p>
@@ -72,5 +69,4 @@ class CollectView @JvmOverloads constructor(context:Context,attrs:AttributeSet?=
     interface  OnCollectViewClickListener{
         fun  onClick(v:CollectView)
     }
-
 }

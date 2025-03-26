@@ -1,13 +1,9 @@
-package com.example.wanandroidtest.ui.adapater
+package com.example.wanandroidtest.ui.adapter
 import android.view.View
-import com.example.jetpackmvvm.base.BaseViewModel
 import com.example.wanandroidtest.R
 import com.example.wanandroidtest.data.bean.BannerBean
-import com.example.wanandroidtest.data.bean.CollectBean
 import com.example.wanandroidtest.weight.banner.HomeBannerVIewHolder
 import com.zhpan.bannerview.BaseBannerAdapter
-import com.zhpan.bannerview.BaseViewHolder
-import java.util.*
 
 /**
  * <p>项目名称:WanAndroidTest</p>

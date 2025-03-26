@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
@@ -65,12 +66,42 @@ fun AppCompatActivity.showMessage(
 }
 
 /**
- 登录状态的拦截
+ *    fragment的拓展提示框
+ *    MaterialDialog风格的对话框， cancelable是否可以通过点击外部进行取消
+ *    lifecycle 与绑定 防止内存泄漏
  */
-fun NavController.jumpByLogin(block: (NavController)-> Unit){
-    if(CacheUtil.isLogin()){
+fun Fragment.showMessage(
+    message: String,
+    title: String = "温馨提示",
+    positiveButtonText: String = "确定",
+    negativeButtonText: String = "取消",
+    positiveButton: () -> Unit = {},
+    negativeAction: () -> Unit = {},
+) {
+    activity?.let {
+        MaterialDialog(it)
+            .cancelable(true)
+            .lifecycleOwner(it)
+            .show {
+                title(text = title)
+                message(text = message)
+                positiveButton(text = positiveButtonText).positiveButton {
+                    positiveButton.invoke()
+                }
+                negativeButton(text = negativeButtonText).negativeButton {
+                    negativeAction.invoke()
+                }
+            }
+    }
+}
+
+/**
+登录状态的拦截
+ */
+fun NavController.jumpByLogin(block: (NavController) -> Unit) {
+    if (CacheUtil.isLogin()) {
         block(this)
-    }else{
+    } else {
         this.navigateActio(R.id.login_activity)
     }
 }
