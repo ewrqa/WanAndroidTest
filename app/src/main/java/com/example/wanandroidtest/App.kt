@@ -6,6 +6,8 @@ import com.example.wanandroidtest.event.EventViewModel
 import com.example.wanandroidtest.weight.loadcallback.LoadingCallBack
 import com.kingja.loadsir.core.LoadSir
 import com.tencent.mmkv.MMKV
+import me.jessyan.autosize.AutoSize
+import me.jessyan.autosize.AutoSizeConfig
 
 /**
  * <p>项目名称:WanAndroidTest</p>

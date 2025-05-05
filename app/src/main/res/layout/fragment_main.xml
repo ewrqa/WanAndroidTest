@@ -18,6 +18,7 @@
 <!--    app:itemIconTint="@color/bottom_selector"设置图片的文字-->
 <!--    app:itemTextColor="@color/bottom_selector"设置文字颜色-->
 <!--    app:menu="@menu/menu_navigation"链接菜单-->
+
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/mainBottom"
         android:layout_width="match_parent"

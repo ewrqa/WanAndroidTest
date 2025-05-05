@@ -37,8 +37,6 @@ open  class BaseApp :Application(),ViewModelStoreOwner{
         mAppViewModelStore= ViewModelStore()
     }
 
-
-
     /**
      * 获取viewmodel
      */
