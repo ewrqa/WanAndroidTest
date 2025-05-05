@@ -17,8 +17,7 @@ import com.example.wanandroidtest.viewmodel.state.MainViewModel
  */
 class MainFragment :BaseFragment<MainViewModel,FragmentMainBinding>(){
     override fun initView(savedInstanceState: Bundle?) {
-        //初始化viewpager2
-
+        //初始化viewpager2 将fragment添加进去
         myDataBinding.mainViewpager.initMain(this)
         myDataBinding.mainBottom.init {
             when(it){

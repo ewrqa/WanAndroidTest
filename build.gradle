@@ -5,6 +5,7 @@ buildscript {
         mavenCentral()
         //继承已经抽取好的基类
         maven { url 'https://www.jitpack.io' }
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.2"

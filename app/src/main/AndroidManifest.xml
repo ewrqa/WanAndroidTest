@@ -17,6 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+<!--        今日头条优化方案 AndroidAutoSize适配方案-->
+<!--        将测试屏幕的dp设置为基准，将宽或高px转换成对应地de  dp=px/(dpi/160)-->
+        <meta-data android:name="design_width_in_dp"
+            android:value="439"
+            />
+        <meta-data android:name="design_height_in_dp"
+            android:value="975"
+            />
         <activity
             android:name=".ui.fragment.setup.SettingsActivity"
             android:exported="true"
